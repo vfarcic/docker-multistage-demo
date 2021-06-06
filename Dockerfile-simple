@@ -1,0 +1,5 @@
+FROM alpine:3.4
+EXPOSE 8080
+CMD ["demo"]
+COPY demo /usr/local/bin/demo
+RUN chmod +x /usr/local/bin/demo

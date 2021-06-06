@@ -1,0 +1,10 @@
+FROM golang:1.16 AS build
+ADD . /src
+WORKDIR /src
+RUN go test --cover -v ./...
+RUN go build -v -o demo
+
+EXPOSE 8080
+CMD ["demo"]
+COPY demo /usr/local/bin/demo
+RUN chmod +x /usr/local/bin/demo
